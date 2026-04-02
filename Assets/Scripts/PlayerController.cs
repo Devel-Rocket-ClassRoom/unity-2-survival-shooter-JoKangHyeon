@@ -66,6 +66,11 @@ public class PlayerController : MonoBehaviour
         #endregion
     }
 
+    private void FixedUpdate()
+    {
+        
+    }
+
     private void Fire()
     {
         if (fireTimer < fireRate)
