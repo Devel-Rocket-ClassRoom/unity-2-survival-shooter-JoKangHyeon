@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -39,18 +38,18 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if(GameManager.instance.IsGameOver || Time.timeScale == 0)
+        if (GameManager.instance.IsGameOver || Time.timeScale == 0)
             return;
 
         #region Movement
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * speed * Time.deltaTime;
-        transform.Translate(movement,Space.World);
+        transform.Translate(movement, Space.World);
 
-        playerAnimator.SetBool("Moving", movement.magnitude>0.01f);
+        playerAnimator.SetBool("Moving", movement.magnitude > 0.01f);
 
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if(Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, groundMask))
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, groundMask))
         {
             Vector3 targetPosition = hit.point;
             targetPosition.y = transform.position.y;

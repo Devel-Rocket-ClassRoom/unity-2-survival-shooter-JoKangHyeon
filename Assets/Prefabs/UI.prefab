@@ -1510,6 +1510,7 @@ MonoBehaviour:
   musicVolumeSlider: {fileID: 3354280451660704094}
   effectVolumeSlider: {fileID: 6346530983589669488}
   muteToggle: {fileID: 1591943362268564985}
+  audioMixer: {fileID: 24100000, guid: 8b285c9e56779074c84925c69ae2c157, type: 2}
 --- !u!95 &6761371706519708083
 Animator:
   serializedVersion: 7
@@ -1974,13 +1975,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 4641745900211865506}
   m_HandleRect: {fileID: 2038678846372755585}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.00000001
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 0.549
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 984858319245650878}
+        m_TargetAssemblyTypeName: UiManager, Assembly-CSharp
+        m_MethodName: OnEffectVolumeSliderChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4251393652528697540
 GameObject:
   m_ObjectHideFlags: 0
@@ -2634,13 +2647,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 1025624173456187932}
   m_HandleRect: {fileID: 1964049282959805308}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.00000001
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 0.549
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 984858319245650878}
+        m_TargetAssemblyTypeName: UiManager, Assembly-CSharp
+        m_MethodName: OnMusicVolumeSliderChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7381542339451960686
 GameObject:
   m_ObjectHideFlags: 0
@@ -2937,7 +2962,19 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 984858319245650878}
+        m_TargetAssemblyTypeName: UiManager, Assembly-CSharp
+        m_MethodName: OnMuteToggleChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &8519791309001202171
 GameObject:

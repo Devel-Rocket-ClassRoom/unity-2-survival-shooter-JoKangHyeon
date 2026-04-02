@@ -23,7 +23,7 @@ public class UiManager : MonoBehaviour
     public AudioMixer audioMixer;
 
     private Coroutine damageEffectCoroutine;
-    private WaitForSeconds damageEffectWait = new WaitForSeconds(0.5f);
+    private WaitForSeconds damageEffectWait = new WaitForSeconds(0.1f);
     private Animator uiAnimator;
     private bool isPaused = false;
 
@@ -37,6 +37,14 @@ public class UiManager : MonoBehaviour
     void Awake()
     {
         uiAnimator = GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
+        musicVolumeSlider.value = PlayerPrefs.GetFloat(k_PrefsMusicVolumeKey, 1f);
+        effectVolumeSlider.value = PlayerPrefs.GetFloat(k_PrefsEffectVolumeKey, 1f);
+        muteToggle.isOn = PlayerPrefs.GetInt(k_PrefsMuteKey, 1) == 1;
+        ApplyVolume();
     }
 
     public void UpdateScore(int score)
@@ -85,7 +93,7 @@ public class UiManager : MonoBehaviour
         }
     }
 
-    public void DamageEffect()
+    public void ShowDamageEffect()
     {
         if (damageEffectCoroutine != null)
         {

@@ -27,7 +27,7 @@ public class PlayerCharacter : LivingEntity
     public override void OnDamage(float damage, Vector3 hitPoint, Vector3 hitNormal)
     {
         base.OnDamage(damage, hitPoint, hitNormal);
-       
+
         if (!IsDead)
         {
             playerAudioSource.PlayOneShot(damagedClip);
@@ -37,6 +37,7 @@ public class PlayerCharacter : LivingEntity
             hitParticle.Play();
 
             uiManager.UpdateHealth(health, maxHealth);
+            uiManager.ShowDamageEffect();
         }
     }
 

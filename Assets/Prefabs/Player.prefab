@@ -238,6 +238,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100078, guid: f1d84cc28597f5641a3d9cbc4df7e306, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8252176332953560661}
+    - targetCorrespondingSourceObject: {fileID: 100078, guid: f1d84cc28597f5641a3d9cbc4df7e306, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6234155178747426742}
   m_SourcePrefab: {fileID: 100100000, guid: f1d84cc28597f5641a3d9cbc4df7e306, type: 3}
 --- !u!4 &3465718528158688929 stripped
 Transform:
@@ -449,7 +452,7 @@ AudioSource:
   m_GameObject: {fileID: 3465718528158792351}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -1543501488430206115, guid: 8b285c9e56779074c84925c69ae2c157, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
@@ -554,3 +557,11 @@ MonoBehaviour:
   damagedClip: {fileID: 8300000, guid: 9922a12f34d0a084aab32de985459723, type: 3}
   deadClip: {fileID: 8300000, guid: d36a393bca4582043982db9089e1694f, type: 3}
   maxHealth: 40
+--- !u!81 &6234155178747426742
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3465718528158792351}
+  m_Enabled: 1

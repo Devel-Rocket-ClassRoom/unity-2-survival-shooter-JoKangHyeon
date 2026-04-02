@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
 
     public void AddScore(int score)
     {
-        Score+= score;
+        Score += score;
         uiManager.UpdateScore(Score);
     }
 

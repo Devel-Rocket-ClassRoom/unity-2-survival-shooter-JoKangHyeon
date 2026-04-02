@@ -1,8 +1,7 @@
 using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
-using System.Linq;
-using System.Collections;
 
 [RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(Animator))]
@@ -103,6 +102,7 @@ public class Monster : LivingEntity
         monsterCollider.enabled = true;
         CurrentState = MonsterState.Idle;
         hitBox.enabled = true;
+        hitBox.Clear();
 
         monsterAnimator.Rebind();
         monsterAnimator.Update(0f);

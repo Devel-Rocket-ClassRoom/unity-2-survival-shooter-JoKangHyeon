@@ -35,6 +35,12 @@ public class HitBox : MonoBehaviour, IEnumerable<Collider>, IEnumerable
 
     public bool FindWithTransform(Transform t)
     {
-        return colliders.Find(c => c.transform == t)!=null;
+        var target = colliders.Find(c => c.transform == t);
+        return target != null;
+    }
+
+    public void Clear()
+    {
+        colliders.Clear();
     }
 }
