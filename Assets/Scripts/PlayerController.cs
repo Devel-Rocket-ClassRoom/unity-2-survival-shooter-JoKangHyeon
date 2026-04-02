@@ -39,6 +39,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if(GameManager.instance.IsGameOver || Time.timeScale == 0)
+            return;
+
         #region Movement
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * speed * Time.deltaTime;
         transform.Translate(movement,Space.World);

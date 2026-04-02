@@ -6,27 +6,38 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     #endregion
 
+    public UiManager uiManager;
+
     public int Score { get; private set; }
+    public bool IsGameOver { get; private set; }
 
     private void Awake()
     {
         instance = this;
+        IsGameOver = false;
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
-        
+        uiManager.UpdateScore(Score);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            uiManager.TogglePause();
+        }
     }
 
     public void AddScore(int score)
     {
+        Score+= score;
+        uiManager.UpdateScore(Score);
+    }
 
+    public void GameOver()
+    {
+        IsGameOver = true;
     }
 }

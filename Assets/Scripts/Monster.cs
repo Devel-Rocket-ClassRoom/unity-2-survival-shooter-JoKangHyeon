@@ -73,7 +73,10 @@ public class Monster : LivingEntity
                     agent.isStopped = true;
                     monsterCollider.enabled = false;
                     monsterAnimator.SetTrigger("Die");
+                    monsterAudioSource.PlayOneShot(data.deadClip);
                     hitBox.enabled = false;
+
+                    GameManager.instance.AddScore(data.score);
                     break;
             }
         }
@@ -148,7 +151,6 @@ public class Monster : LivingEntity
             return;
 
         base.Die();
-
         CurrentState = MonsterState.Dead;
     }
 
