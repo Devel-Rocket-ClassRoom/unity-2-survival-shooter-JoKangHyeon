@@ -42,8 +42,9 @@ public class Monster : LivingEntity
 
     private AudioSource monsterAudioSource;
     private Animator monsterAnimator;
-    private NavMeshAgent agent;
     private Collider monsterCollider;
+    private Rigidbody monsterRigidBody;
+    private NavMeshAgent agent;
 
     protected MonsterState CurrentState
     {
@@ -70,6 +71,7 @@ public class Monster : LivingEntity
                     break;
                 case MonsterState.Dead:
                     agent.isStopped = true;
+                    monsterRigidBody.isKinematic = true;
                     monsterCollider.enabled = false;
                     monsterAnimator.SetTrigger("Die");
                     monsterAudioSource.PlayOneShot(data.deadClip);
@@ -87,6 +89,7 @@ public class Monster : LivingEntity
         monsterAudioSource = GetComponent<AudioSource>();
         monsterAnimator = GetComponent<Animator>();
         monsterCollider = GetComponent<Collider>();
+        monsterRigidBody = GetComponent<Rigidbody>();
         agent = GetComponent<NavMeshAgent>();
     }
 
@@ -98,8 +101,9 @@ public class Monster : LivingEntity
         {
             agent.Warp(hit.position);
         }
-
         monsterCollider.enabled = true;
+        monsterRigidBody.isKinematic = false;
+
         CurrentState = MonsterState.Idle;
         hitBox.enabled = true;
         hitBox.Clear();
